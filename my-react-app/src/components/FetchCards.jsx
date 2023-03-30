@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react'
-import DeckSet from './Hands'
+import {GetPlayerHand, GetDealerHand} from './Hands'
 
 const FetchCards = () => {
-
     const [cards, setCards] = useState(null)
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
@@ -26,9 +25,15 @@ const FetchCards = () => {
     if (error) return 'Error!';
 
     return (
-        <div>
-            <h1>{cards.remaining}</h1>
-            <DeckSet deckId={cards.deck_id} remaining={cards.remaining}  />
+        <div className='blackjack'>
+            <div className='buttons'>
+                <button>Hit</button>
+                <button>Stand</button>
+            </div>
+            <div className='hands'>
+                <GetPlayerHand deckId={cards.deck_id} remaining={cards.remaining}/>
+                <GetDealerHand deckId={cards.deck_id} remaining={cards.remaining}/>
+            </div>
         </div>
     );
 }

@@ -3,7 +3,7 @@ import FetchCards from './components/FetchCards'
 
 const Blackjack = () => {
     return (
-        <div className='blackjack'>
+        <div>
             <FetchCards />
         </div>
     )
